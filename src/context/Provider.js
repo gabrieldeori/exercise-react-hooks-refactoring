@@ -9,21 +9,22 @@ class Provider extends Component {
     super(props);
     this.state = {
       cars: {
-        red: false,
-        blue: false,
-        yellow: false,
+        redCar: false,
+        blueCar: false,
+        yellowCar: false,
       },
     }
     this.moveCar = this.moveCar.bind(this);
   }
 
   moveCar(car, side) {
-    this.setState({
-      cars: {
-        ...this.state.cars,
+    this.setState((prev) => {
+      return {
+        cars: {
+        ...prev.cars,
         [car]: side,
       },
-    });
+    }});
   };
 
   render() {
